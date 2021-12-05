@@ -5,28 +5,27 @@
 }
 
 .sidebar {
+    min-width: 15%;
     border-right: 1px solid var(--ng-shaper-dark-grey-1);
-    padding: 20px;
-    width: 240px;
-    box-sizing: border-box;
     background-color: var(--ng-shaper-dark-grey-2);
 }
 
-.sidebar h1 {
-    margin: 0;
+.sidebar.left {
+    padding: 20px;
+    max-width: 20%;
 }
 
-.sidebar p {
-    margin: 0;
+.sidebar.right {
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.sidebar.left p {
     margin-top: 10px;
     margin-bottom: 30px;
     font-size: 12px;
 }
 
-app-figure-list {
-    border-left: 1px solid var(--ng-shaper-dark-grey-1);
-    padding: 10px;
-    width: 240px;
-    box-sizing: border-box;
-    background-color: var(--ng-shaper-dark-grey-2);
+app-viewer {
+    flex-grow: 1;
 }
