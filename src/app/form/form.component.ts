@@ -12,12 +12,12 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class FormComponent {
   public shapeFormGroup: FormGroup;
-  public geometryTypesSelectOptions: [string, GeometryType][] = Object.entries(GeometryType);
+  public geometryTypesSelectOptions: GeometryType[] = Object.values(GeometryType);
 
   constructor(private dataService: DataService) {
     this.shapeFormGroup = new FormGroup({
       figureName: new FormControl('', [Validators.required]),
-      geometryType: new FormControl(Object.keys(GeometryType)[0]),
+      geometryType: new FormControl(GeometryType.BOX),
       figureSize: new FormControl(2),
       figureColor: new FormControl('#A9EA1F'),
     });
@@ -32,6 +32,8 @@ export class FormComponent {
         color: this.shapeFormGroup.value.figureColor,
         geometryType: this.shapeFormGroup.value.geometryType,
       }));
+
+      this.shapeFormGroup.controls['figureName'].setValue('');
     }
   }
 }
