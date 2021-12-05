@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
+    --ng-shaper-black: #000;
     --ng-shaper-dark-grey-1: #1f1f1f;
     --ng-shaper-dark-grey-2: #2E2E2E;
     --ng-shaper-dark-grey-3: #434343;
@@ -9,12 +15,9 @@
     --ng-shaper-blue: #345CEB;
   }
 
-html, body {
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-}
-
 body {
-    background-color: var(--ng-shaper-dark-grey-3);
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background-color: var(--ng-shaper-dark-grey-2);
     color: var(--ng-shaper-white);
 }

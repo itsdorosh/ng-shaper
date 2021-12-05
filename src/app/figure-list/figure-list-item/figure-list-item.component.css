@@ -3,10 +3,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    padding-right: 10px;
     width: 220px;
     height: 40px;
-    background: var(--ng-shaper-dark-grey-2);
-    border: 1px solid var(--ng-shaper-dark-grey-1);
+    background: var(--ng-shaper-dark-grey-1);
+    border: 1px solid var(--ng-shaper-black);
     box-sizing: border-box;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -34,7 +35,7 @@ h3 {
     width: 10px;
     height: 10px;
     background: var(--ng-shaper-dark-grey-1);
-    border: 1px solid var(--ng-shaper-dark-grey-1);
+    border: 1px solid var(--ng-shaper-black);
     box-sizing: border-box;
     border-radius: 2px;
 }

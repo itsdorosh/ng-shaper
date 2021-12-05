@@ -1,3 +1,32 @@
+:host {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .sidebar {
+    border-right: 1px solid var(--ng-shaper-dark-grey-1);
+    padding: 20px;
+    width: 240px;
+    box-sizing: border-box;
+    background-color: var(--ng-shaper-dark-grey-2);
+}
+
+.sidebar h1 {
+    margin: 0;
+}
+
+.sidebar p {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+app-figure-list {
+    border-left: 1px solid var(--ng-shaper-dark-grey-1);
+    padding: 10px;
+    width: 240px;
+    box-sizing: border-box;
     background-color: var(--ng-shaper-dark-grey-2);
 }

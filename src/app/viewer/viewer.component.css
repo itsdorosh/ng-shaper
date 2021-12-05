@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--ng-shaper-dark-grey-3);
+}
+
+:host h1 {
+    font-size: 64px;
+}
