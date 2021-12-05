@@ -1,0 +1,15 @@
+.field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.field input, .field select {
+    height: 30px;
+    border-radius: 5px;
+}

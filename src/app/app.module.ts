@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -18,7 +19,8 @@ import { ViewerComponent } from './viewer/viewer.component';
     FigureListItemComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
   ],
   providers: [ DataService, {useValue: 'figure-items', provide: LOCAL_STORAGE_DATA_KEY}],
   bootstrap: [AppComponent]
