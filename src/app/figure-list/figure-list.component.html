@@ -1,2 +1,1 @@
-<p>figure-list works!</p>
-<app-figure-list-item></app-figure-list-item>
+<app-figure-list-item *ngFor="let figureItem of figureList$ | async" [item]="figureItem"></app-figure-list-item>

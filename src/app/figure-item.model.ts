@@ -1,7 +1,7 @@
 export enum GeometryType {
-    BOX = "BOX_GEOMETRY",
-    SPHERE = "SPHERE_GEOMETRY",
-    CYLINDER = "CYLINDER_GEOMETRY",
+    BOX = "BoxGeometry",
+    SPHERE = "SphereGeometry",
+    CYLINDER = "CylinderGeometry",
 }
 
 export interface IFigureItem {

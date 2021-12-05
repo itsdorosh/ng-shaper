@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { IFigureItem, mapToFigureItem } from './figure-item.model';
 import { LOCAL_STORAGE_DATA_KEY } from './providers';
 
@@ -6,7 +7,8 @@ import { LOCAL_STORAGE_DATA_KEY } from './providers';
   providedIn: 'root'
 })
 export class DataService {
-  data: IFigureItem[] = [];
+  public data: IFigureItem[] = [];
+  public readonly data$: BehaviorSubject<IFigureItem[]> = new BehaviorSubject<IFigureItem[]>([]);
 
   constructor(@Inject(LOCAL_STORAGE_DATA_KEY) private key: string) {
     this.unstashData();
@@ -14,10 +16,13 @@ export class DataService {
 
   addFigureItem(figureItem: IFigureItem): void {
     this.data.push(figureItem);
+    this.refreshSubject();
   }
 
-  removeFigureItem(id: string): void {
-    this.data.splice(this.data.findIndex((item) => item.id === id), 1);
+  removeFigureItem(id: string): IFigureItem {
+    const removedElements = this.data.splice(this.data.findIndex((item) => item.id === id), 1);
+    this.refreshSubject();
+    return removedElements[0];
   }
 
   public stashData(): void {
@@ -28,6 +33,11 @@ export class DataService {
   public unstashData(): void {
     const items: string | null = window.localStorage.getItem(this.key);
     this.data = items ? JSON.parse(items).map((item: any) => mapToFigureItem(item)) : [];
+    this.refreshSubject();
+  }
+
+  private refreshSubject() {
+    this.data$.next(this.data);
   }
 
 }

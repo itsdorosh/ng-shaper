@@ -9,9 +9,7 @@ import { DataService } from './data.service';
 export class AppComponent implements OnDestroy {
   title = 'Shaper';
 
-  constructor(public dataService: DataService) {
-    console.log(dataService.data);
-  }
+  constructor(public dataService: DataService) {}
 
   ngOnDestroy(): void {
     confirm('Would you like to save your latest draft?') && this.dataService.stashData();
