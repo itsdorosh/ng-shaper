@@ -51,7 +51,7 @@ export class ViewerComponent implements AfterViewInit {
     this.camera = new PerspectiveCamera(70, this.canvasRef.nativeElement.clientWidth / this.canvasRef.nativeElement.clientHeight, 1, 1000);
     this.camera.position.z = 20;
 
-    this.renderer = new WebGLRenderer({ canvas: this.canvasRef.nativeElement });
+    this.renderer = new WebGLRenderer({ canvas: this.canvasRef.nativeElement, antialias: true });
     this.renderer.setPixelRatio(devicePixelRatio);
     this.renderer.setSize(this.canvasRef.nativeElement.clientWidth, this.canvasRef.nativeElement.clientHeight);
 
