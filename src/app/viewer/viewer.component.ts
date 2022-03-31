@@ -41,6 +41,9 @@ export class ViewerComponent implements AfterViewInit {
 
     this.dataService.data$.subscribe((figureList: IFigureItem[]) => {
       figureList.forEach((figure: IFigureItem) => !this.drawedFiguresUUIDs.includes(figure.id) && this.draw(figure));
+
+      const figureListIDs = figureList.map(figure => figure.id);
+      this.drawedFiguresUUIDs.forEach((drawedFigureUUID) => !figureListIDs.includes(drawedFigureUUID) && this.remove(drawedFigureUUID));
     });
   }
 
@@ -92,8 +95,15 @@ export class ViewerComponent implements AfterViewInit {
 
     const mesh = new Mesh(geometry, new MeshPhongMaterial({ color: figure.color }));
     mesh.position.set(this.getRandomNumber(-5, 5), this.getRandomNumber(-2.5, 2.5), this.getRandomNumber(-5, 5));
+    mesh.userData["meshID"] = figure.id;
     this.scene.add(mesh);
     this.drawedFiguresUUIDs.push(figure.id);
+  }
+
+  remove(drawedFigureUUID: string): void {
+    // TODO: improve removing with detaching material and geometry
+    const meshForRemove = this.scene.children.find(obj => obj.userData["meshID"] === drawedFigureUUID);
+    meshForRemove && this.scene.remove(meshForRemove);
   }
 
   private getRandomNumber(min: number, max: number): number {

@@ -15,4 +15,7 @@ export class FigureListComponent {
     this.figureList$ = this.dataService.data$;
   }
 
+  public onRemoveHandler(id: string) {
+    this.dataService.removeFigureItem(id);
+  }
 }
